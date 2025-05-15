@@ -1,4 +1,4 @@
-#include "GraphUtils.h" // Подключаем заголовочный файл с объявлениями функций
+#include "graf.h" // Подключаем заголовочный файл с объявлениями функций
 #include <iostream>   // Подключаем для вывода сообщений об ошибках
 #include <fstream>    // Подключаем для работы с файлами (чтение)
 #include <vector>     // Подключаем для использования векторов
@@ -11,7 +11,7 @@
  * @param adjacencyMatrix Возвращает матрицу смежности графа.
  * @return true, если чтение прошло успешно, false в случае ошибки.
  */
-bool readAdjacencyMatrix(const std::string& filename, int& n, std::vector<std::vector<int>>& adjacencyMatrix) {
+bool ReadAdjacencyMatrix(const std::string& filename, int& n, std::vector<std::vector<int>>& adjacencyMatrix) {
     std::ifstream inputFile(filename); // Открываем файл для чтения
     if (!inputFile.is_open()) {       // Проверяем, удалось ли открыть файл
         std::cerr << "Ошибка открытия файла: " << filename << std::endl;
@@ -50,7 +50,7 @@ bool readAdjacencyMatrix(const std::string& filename, int& n, std::vector<std::v
  * @param adjacencyMatrix Матрица смежности графа.
  * @param degrees Вектор для хранения степеней вершин.
  */
-void calculateDegrees(int n, const std::vector<std::vector<int>>& adjacencyMatrix, std::vector<int>& degrees) {
+void CalculateDegrees(int n, const std::vector<std::vector<int>>& adjacencyMatrix, std::vector<int>& degrees) {
     degrees.resize(n, 0); // Изменяем размер вектора степеней в соответствии с количеством вершин и инициализируем нулями
     for (int i = 0; i < n; ++i) {     // Цикл по каждой вершине графа (от 0 до n-1)
         for (int j = 0; j < n; ++j) { // Цикл по всем возможным смежным вершинам
